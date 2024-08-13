@@ -1,0 +1,722 @@
+:root {
+    --bg-color: #1e1e1e;
+    --text-color: #ffffff;
+    --button-bg: #292929;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black; /* Set background to black */
+    height: 100vh; /* Full height */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    overflow: hidden; /* Hide scrollbar */
+}
+
+.box-container {
+    position: relative; /* Make this relative to allow absolute positioning for child elements */
+    text-align: center; /* Center text under image */
+    width: 1200px; /* Desired width for the app "icon" */
+    height: 700px; /* Desired height for the app "icon" */
+    border-radius: 20px; /* Rounded corners */
+    background-image: url(icons/Winterfest\ 2021\ Lobby\ Background.PNG);
+    box-shadow: 0 4px 20px rgba(39, 39, 39, 0.7); /* Shadow for depth */
+    border: 4px solid #18243a; /* Outline around the box container */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, border-color 0.3s ease; /* Transition for hover effect */
+}
+
+
+
+.box-container:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    border-color: #000000; /* Change outline color on hover */
+}
+
+/* Existing styles */
+
+.context-menu {
+    display: none;
+    font-family: poppins;
+    position: fixed;
+    background-color: rgba(106, 104, 104, 0.322);
+    min-width: 200px;
+    color: rgba(255, 255, 255, 0.747);
+    font-weight: lighter;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border: 1.5px solid #9e9e9e4b;
+    padding: 8px;
+    border-radius: 8px;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+
+/* Context Menu Appearance */
+.context-menu.show {
+    display: block; /* Clearly show context menu */
+}
+
+.context-menu h4 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Context Menu Button Styles */
+.context-menu-button {
+    background-color: rgba(40, 40, 40, 0.9);
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.3s;
+    background: var(--button-background-color);
+    background: var(--button-gradient-color);
+    box-shadow: 14px 7px 30px -5px #0516ff, -15px -2px 30px -5px #1221f7;
+}
+
+.context-menu-button:hover {
+    background-color: rgba(50, 50, 50, 0.9);
+    transform: scale(1.05);
+}
+
+.context-menu-button:active {
+    transform: scale(0.95);
+}
+.timeout-screen {
+    display: none; 
+    position: fixed; 
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.95); 
+    color: white; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1001; 
+    text-align: center;
+    transition: opacity 0.5s ease-in-out; 
+}
+
+/* Styling for the timeout image container */
+.timeout-image-container {
+    margin-bottom: 20px; 
+    padding: 15px; 
+    border-radius: 15px; /* Rounded corners */
+    border: 4px solid #18243a; /* Border color */
+    background-color: rgba(167, 167, 167, 0.1); /* Slight background color for the box */
+}
+
+/* Styling for the timeout image */
+.timeout-image {
+    width: 150px; 
+}
+.timeout-image2 {
+    width: 50px; 
+}
+/* Styling for the timeout box */
+.timeout-box {
+    padding: 20px; 
+    border-radius: 15px; 
+    border: 4px solid #18243a; /* Border color */
+    background-color: rgba(233, 228, 228, 0.1); 
+}
+
+/* Styling for timeout message */
+.timeout-message {
+    font-size: 24px; 
+    margin-bottom: 10px; 
+}
+
+/* Styling for the timer */
+.timeout-timer {
+    font-size: 48px; 
+    font-weight: bold; 
+    color: #110581; /* Timer color */
+    margin: 10px 0; /* Space around */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Shadow effect */
+}
+
+/* Styling for timeout reason */
+.timeout-reason {
+    font-size: 18px; 
+    padding: 0 20px; 
+    margin-bottom: 15px; 
+}
+
+/* Styling for additional message */
+.additional-message {
+    font-size: 16px; 
+    font-family: 'Roboto', sans-serif;
+    padding: 0 20px; 
+}
+.additional-message2 {
+    font-size: 10px; 
+    font-family: 'Roboto', sans-serif;
+    padding: 0 20px; 
+}
+.logo-image {
+    position: absolute; /* Position it absolutely to the container */
+    top: 10px; /* Adjust the position from the top */
+    left: 10px; /* Adjust the position from the left */
+    width: 50px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 10; /* Ensure it's above other elements if needed */
+}
+/* Add this to your existing styles.css */
+
+/* Version info positioning */
+/* Add this to your existing styles.css */
+
+/* Version info positioning */
+/* Add this to your existing styles.css */
+
+/* Version info positioning */
+.version-info {
+    position: absolute; /* Position it absolutely within the .login-container */
+    top: 10px; /* Adjust to place it appropriately */
+    right: 10px; /* Position it to the right corner */
+    display: flex; /* Align icon and text horizontally */
+    align-items: center; /* Vertically center icon and text */
+    font-size: 14px; /* Adjust the font size */
+    color: rgb(241, 241, 241); /* Change the text color as needed */
+    background: rgba(27, 27, 28, 0.7); /* Slightly transparent background for better visibility */
+    padding: 5px; /* Optional padding for the version info */
+    border-radius: 5px; /* Optional: round the corners */
+    z-index: 10; /* Ensure it's above other elements if needed */
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Ensure the timeout-box position is relative to contain the absolute positioning of .version-info */
+.timeout-box {
+    position: relative; /* Set this to allow .version-info to be positioned correctly */
+    padding: 20px; /* Add some padding if needed */
+}
+
+/* Version icon styling */
+.version-icon {
+    width: 20px; /* Size of the icon */
+    height: 20px; /* Size of the icon */
+    margin-right: 5px; /* Space between icon and text */
+}
+
+
+.login-container {
+    border: 2px solid #333; /* Dark border for the container */
+    background-color: #111111; /* Background color for the container */
+    border-radius: 15px; /* Round corners */
+    padding: 20px;
+    width: 800px;
+    height: 550px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    font: italic;
+    display: flex; /* Utilize Flexbox for centering */
+    flex-direction: column; /* Align items in a column */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+.login-screenv {
+    position: relative;
+}
+.create-account-screen {
+    position: relative;
+}
+
+.username-screen {
+    position: relative;
+}
+
+.terms-screen {
+    position: relative;
+}
+
+h2 {
+    text-align: center;
+    color: #898989;
+    font-family: 'Roboto', sans-serif;
+}
+h1{
+    text-align: center;
+    font-size: 15px;
+    color: #cecece;
+    font-family: 'Roboto', sans-serif;
+}
+
+input {
+    width: 80%; /* Set the width of the input fields to 80% */
+    max-width: 400px; /* Optional: Maximum width limit */
+    padding: 10px;
+    margin: 10px auto; /* Center with automatic margins */
+    background-color: #1e1e1e; /* Dark input background */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    color: #ffffff; /* White text color */
+    transition: border-bottom 0.3s; /* Transition for the border effect */
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Underline effect when the input is focused */
+input:focus {
+    outline: none; /* Remove default outline */
+    border-bottom: 2px solid #007bff; /* Blue underline */
+}
+
+/* Login button styling */
+button {
+    width: 450px;
+    padding: 5px;
+    background: linear-gradient(135deg, #121212, #212020); /* Gradient background */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    color: #b9b5b5; /* Button text color */
+    cursor: pointer; /* Pointer cursor for hover effect */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition */
+    position: relative; /* Positioning for pseudo-elements */
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Button hover effect */
+button:hover {
+    background: linear-gradient(135deg, #1e1e1e, #191919); /* Darker blue gradient on hover */
+    transform: translateY(-2px); /* Lift effect */
+   border-bottom: #007bff;
+}
+
+/* Style for Create Account text */
+#show-register {
+    color: #0867cd; /* Blue color */
+    text-decoration: underline; /* Underline to indicate it's clickable */
+    cursor: pointer; /* Pointer cursor */
+    transition: color 0.3s; /* Transition for hover effect */
+}
+
+#show-register:hover {
+    color: #626262; /* Darker blue on hover */
+}
+
+p {
+    color: #ccc; /* Light gray color for paragraph text */
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* General styles for the login container */
+
+
+/* Style for the terms screen */
+.terms-screen {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Heading styles */
+h2 {
+    font-size: 26px; /* Font size for the heading */
+    margin-bottom: 10px; /* Space below the heading */
+    color: #e0e0e0; /* Light gray color for the heading */
+}
+
+/* Last updated date styling */
+.last-updated {
+    font-size: 14px; /* Smaller font for the date */
+    color: #b0b0b0; /* Lighter text color */
+    margin-bottom: 20px; /* Space below the date */
+}
+
+/* Terms text styling */
+.terms-text {
+    flex-grow: 1; /* Allow this section to grow */
+    max-height: 300px; /* Set a maximum height */
+    overflow-y: auto; /* Enable scrolling */
+    padding: 15px; /* Inner padding */
+    background-color: #2a2a2a; /* Darker background for the text area */
+    border: 1px solid #444; /* Dark border around the text area */
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 15px; /* Space between terms text and checkbox/button */
+}
+
+/* Styling for p elements inside terms text */
+.terms-text p {
+    margin-bottom: 10px; /* Space between paragraphs */
+    line-height: 1.6; /* Line height for better readability */
+}
+
+.terms-text a {
+    color: #1e90ff; /* Bright color for links */
+    text-decoration: none; /* No underline */
+}
+
+.terms-text a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Checkbox and label styling */
+.terms-checkbox {
+    display: flex; /* Flex for alignment */
+    align-items: center; /* Center align */
+    margin-bottom: 15px; /* Space below checkbox */
+    border: 1px solid #888; /* Gray border around checkbox container */
+    background-color: #222; /* Dark background for the checkbox container */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Inner padding */
+}
+
+.terms-checkbox input {
+    display: none; /* Hide the default checkbox */
+}
+
+.terms-checkbox label {
+    position: relative;
+    padding-left: 35px; /* Space for custom checkbox */
+    cursor: pointer; /* Pointer for hover */
+    color: #f1f1f1; /* Label text color */
+    font-size: 16px; /* Label font size */
+}
+
+/* Custom checkbox design */
+.terms-checkbox label:before {
+    content: '';
+    position: absolute;
+    left: 0; /* Align to the left */
+    top: 50%; /* Vertical center */
+    transform: translateY(-50%);
+    width: 20px; /* Width of the custom checkbox */
+    height: 20px; /* Height of the custom checkbox */
+    background: #444; /* Background for custom checkbox */
+    border-radius: 4px; /* Slightly rounded corners */
+    border: 2px solid #888; /* Border color */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    transition: background 0.3s, border-color 0.3s; /* Smooth transition */
+}
+
+/* Show the custom checkmark when the checkbox is checked */
+.terms-checkbox input:checked + label:before {
+    background: #0080ff; /* Change background when checked */
+    border-color: #000000; /* Change border color */
+}
+
+/* Add a checkmark when checked */
+.terms-checkbox input:checked + label:after {
+    content: '';
+    position: absolute;
+    left: 5px; /* Align to the left */
+    top: 50%; /* Vertical center */
+    transform: translateY(-50%) rotate(45deg); /* Rotate to create checkmark */
+    width: 10px;
+    height: 5px;
+    border: solid rgb(255, 255, 255); /* Checkmark color */
+    border-width: 0 3px 3px 0; /* Create the checkmark shape */
+    opacity: 1; /* Ensure it's visible */
+}
+
+/* Hide the checkmark when unchecked */
+.terms-checkbox input:checked + label:after {
+    opacity: 1; /* Visible when checked */
+}
+
+.terms-checkbox input:not(:checked) + label:after {
+    opacity: 0; /* Invisible when unchecked */
+}
+
+button {
+    background-color: #292929; /* Button background color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    padding: 10px 15px; /* Padding for button */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer on hover */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s; /* Transition effect */
+    opacity: 0.6; /* Disabled state */
+    font-family: 'Roboto', sans-serif;
+}
+
+button:hover {
+    background-color: #000000; /* Darker green on hover */
+}
+button:focus, input:focus {
+    outline: 2px solid #007bff; /* Clear focus outline */
+}
+
+/* Enable button when checkbox is checked */
+.terms-checkbox input:checked ~ #finish {
+    opacity: 1; /* Fully opaque */
+    cursor: pointer; /* Pointer on hover */
+}
+.weather-drop {
+    position: absolute;
+    left: 50%; /* Start in the middle of the screen */
+    width: 10px; /* Width of the drop */
+    height: 10px; /* Height of the drop */
+    border-radius: 50%;
+    z-index: -1; /* Lower z-index for effect */
+}
+
+.rain {
+    background: rgba(255, 255, 255, 0.6); /* Light color for rain */
+    animation: rain-fall linear forwards;
+}
+
+.snow {
+    background: rgba(255, 255, 255, 0.9); /* Dull white for snow */
+    animation: snow-fall linear forwards;
+}
+
+@keyframes rain-fall {
+    to {
+        transform: translateY(100vh); /* Rain falls down */
+        opacity: 0; /* Fade out */
+    }
+}
+
+@keyframes snow-fall {
+    to {
+        transform: translateY(100vh); /* Snow falls down */
+        opacity: 0.5; /* Snow fades out */
+    }
+}
+
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(128, 128, 128, 0.7); /* Gray color with transparency */
+    transform: scale(0);
+    animation: ripple-animation 0.6s linear;
+    pointer-events: none; /* Prevent capturing pointer events */
+    box-shadow: 0 0 10px rgba(128, 128, 128, 0.5); /* Cool shadow effect */
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(8); /* Scale up significantly for a nice effect */
+        opacity: 0; /* Fade out */
+    }
+}
+
+
+/* This will hide the logo on the Terms of Service page */
+/* This will hide the login logo on the Terms of Service page */
+.terms-of-service .login-logo {
+    display: none; /* Hides the logo */
+}
+
+.welcome-container {
+    text-align: center; /* Center the container */
+    position: relative; /* Allow positioning of the title */
+    margin-top: 50px; /* Space from the top */
+}
+
+.welcome-title {
+    position: absolute; /* Change to absolute */
+    display: flex;
+    top: 10%; /* Position near the top of the container */
+    left: 50%; /* Center it horizontally */
+    transform: translate(-50%, -50%); /* Adjust for perfect centering */
+    width: auto; /* Auto width */
+    height: auto; /* Remove fixed height */
+    margin: 0; /* Remove any margin */
+    padding: 20px; /* Add some padding */
+    text-align: center; /* Center the text */
+    font-size: 30px; /* Larger font size for more impact */
+    font-weight: bold; /* Bold text for emphasis */
+    color: transparent; /* Start with transparent color for gradient effect */
+    background: linear-gradient(90deg, #ffffff, #ffffff); /* Gradient color */
+    -webkit-background-clip: text; /* Clip the background to text */
+    background-clip: text; /* Clip the background to text */
+    animation: fadeIn 1s ease-in; /* Fade-in animation */
+    border: 5px solid #2f2f30; /* Dark blue border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(91, 88, 88, 0.2); /* Subtle shadow */
+}
+.welcome-subtitle {
+    font-size: 20px; /* Font size for the subtitle */
+    color: #333; /* Dark gray color for readability */
+    margin-top: 15px; /* Space between title and subtitle */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start transparent */
+    }
+    to {
+        opacity: 1; /* Fully opaque */
+    }
+}
+
+
+.back-button {
+    position: absolute; /* Use absolute positioning */
+    bottom: 0; /* Position at the bottom of the container */
+    left: 0; /* Align to the left */
+    width: auto; /* Set width to auto */
+    height: auto; /* Set height to auto */
+    margin: 0; /* Remove margin */
+    padding: 10px; /* Optional: Add some padding for spacing */
+}
+.contiune-button{
+    position: absolute; /* Use absolute positioning */
+    bottom: 0;
+    right: 0;
+    width: auto; /* Set width to auto */
+    height: auto; /* Set height to auto */
+    margin: 0; /* Remove margin */
+    padding: 10px; /* Optional: Add some padding for spacing */
+}
+.body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+
+
+/* Styles for the question mark circle */
+.question-mark-circle {
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center the icon horizontally */
+    align-items: center; /* Center the icon vertically */
+    width: 40px; /* Set the width of the circle */
+    height: 40px; /* Set the height of the circle */
+    border: 2px solid white; /* Circle border color */
+    border-radius: 50%; /* Make it a circle */
+    background-color: rgba(33, 32, 32, 0.6); /* Slightly transparent background */
+    position: absolute; /* Position it absolutely */
+    bottom: 20px; /* Position from the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
+    transition: transform 0.3s; /* Smooth transition */
+    cursor: pointer; /* Show pointer on hover */
+}
+
+/* Styles for the question mark icon */
+.question-mark-icon {
+    color: white; /* Icon color */
+    font-size: 20px; /* Adjusted font size for a better fit */
+}
+
+/* Cool hover effect for the circle */
+.question-mark-circle:hover {
+    transform: translateX(-50%) scale(1.1); /* Slightly enlarge the circle on hover */
+    background-color: #007bff;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.6); /* Black with transparency */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.modal-content {
+    background-color: rgb(22, 22, 22); /* Gray background */
+    width: 576px; /* Set width */
+    max-height: 575px; /* Set height */
+    overflow-y: auto; /* Scroll if content exceeds max height */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding inside modal */
+    position: relative; /* For close button positioning */
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between; /* Space between title and close button */
+    align-items: center; /* Center items */
+}
+
+.close {
+    cursor: pointer; /* Pointer on hover */
+    font-size: 28px; /* Adjusted font size for visibility */
+    color: white; /* Close button color */
+    transition: color 0.3s, transform 0.3s; /* Smooth transitions */
+    position: relative; /* Position for pseudo-element */
+}
+
+/* Close button hover effect */
+.close:hover {
+    color: rgb(97, 2, 2); /* Change color on hover */
+    transform: scale(1.1); /* Slightly enlarge */
+}
+
+/* Optional: Adding a pseudo-element for additional styling */
+.close::after {
+    content: ''; /* Create a pseudo-element */
+    position: absolute; /* Absolute positioning */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    border-radius: 50%; /* Round shape */
+    background-color: rgba(255, 0, 0, 0.1); /* Light red background */
+    opacity: 0; /* Initially invisible */
+    transition: opacity 0.3s; /* Smooth transition */
+}
+
+/* Show the background on hover */
+.close:hover::after {
+    opacity: 1; /* Show background on hover */
+}
+
+/* Optional: Additional styles for enhanced visual appearance */
+.modal-header h2 {
+    margin: 0; /* Remove margin */
+}
+
+/* Webkit scrollbar styling */
+.modal-body::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+    background-color: transparent; /* Background color of scrollbar */
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background-color: gray; /* Color of the scrollbar thumb */
+    border-radius: 5px; /* Rounding for aesthetic */
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+    background-color: darkgray; /* Color on hover */
+}
+
+.header {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    justify-content: center;
+    z-index: 10;
+}
+
+#canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Behind other content */
+}
+
+/* Hide scrollbars for webkit browsers (Chrome, Safari) */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbars for Firefox */
+body {
+    scrollbar-width: none; /* For Firefox */
+}
